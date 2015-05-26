@@ -1,20 +1,20 @@
 public class Circle 
+{
+	String m_color;
+	double m_radius;
+
+	public Circle(double radius) 
 	{
-	String m_color = "grey";
-	double m_radius = -1;
-	
-	public Circle(double radius) {
 		m_radius = radius;
-		System.out.println("We are creating a circle");
+		m_color = "grey";
 	}
-	
-	public Circle(String color, double radius) 
+
+	public Circle(double radius, String color) 
 	{
 		m_color = color;
 		m_radius = radius;
-		System.out.println("We are creating a circle2");
 	}
-	
+
 	public double CalculateArea() 
 	{
 		double area = 3.14 * m_radius * m_radius;
@@ -25,19 +25,19 @@ public class Circle
 	{
 		System.out.println("My color is: " + m_color);
 	}
-	
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
-		Circle myCircle = new Circle(10.0);
-		Circle myCircle2 = new Circle("red", 5.0);
-		double area = myCircle.CalculateArea();
-		double area2 = myCircle2.CalculateArea();
-		System.out.println(area);
-		System.out.println(area2);
+		Circle bigCircle = new Circle(10.0);
+		double bigArea = bigCircle.CalculateArea();
+		bigCircle.PrintColor();
+		System.out.println("Big circle area is " + bigArea + " and the color is " + bigCircle.m_color + ".");
 		
-		myCircle.PrintColor();
-		myCircle2.PrintColor();
-
+		Circle smallCircle = new Circle(5, "purple");
+		double smallArea = smallCircle.CalculateArea();	
+		smallCircle.PrintColor();
+		System.out.println("Small circle area is " + smallArea + " and the color is " + smallCircle.m_color + ".");
+		
+		
 	}
 
 }
