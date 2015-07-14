@@ -205,26 +205,43 @@ public class TicTacToe {
 				}
 			}
 			
-			for (int i = 0; i < 3; i++)
+			String seven = m_allButtons[0][0].getText();
+			String eight = m_allButtons[1][1].getText();
+			String nine = m_allButtons[2][2].getText();
+				
+			boolean diagonal = seven.isEmpty() || eight.isEmpty() || nine.isEmpty();
+				
+			if (! diagonal)
 			{
-				String seven = m_allButtons[0][0].getText();
-				String eight = m_allButtons[1][1].getText();
-				String nine = m_allButtons[2][2].getText();
-				
-				boolean diagonal = seven.isEmpty() || eight.isEmpty() || nine.isEmpty();
-				
-				if (! diagonal)
-				{
-					boolean same = (seven == eight) && (eight == nine);
+				boolean same = (seven == eight) && (eight == nine);
 					
-					if (same)
-					{
-						m_allButtons[0][0].setBackground(Color.WHITE);
-						m_allButtons[1][1].setBackground(Color.WHITE);
-						m_allButtons[2][2].setBackground(Color.WHITE);
-						DisableAllButtons();
-						JOptionPane.showMessageDialog(frmTicTacToe, "We have a winner!");
-					}
+				if (same)
+				{
+					m_allButtons[0][0].setBackground(Color.WHITE);
+					m_allButtons[1][1].setBackground(Color.WHITE);
+					m_allButtons[2][2].setBackground(Color.WHITE);
+					DisableAllButtons();
+					JOptionPane.showMessageDialog(frmTicTacToe, "We have a winner!");
+				}
+			}
+			
+			String ten = m_allButtons[0][2].getText();
+			String eleven = m_allButtons[1][1].getText();
+			String twelve = m_allButtons[2][0].getText();
+			
+			boolean diagonal2 = ten.isEmpty() || eleven.isEmpty() || twelve.isEmpty();
+			
+			if (! diagonal2)
+			{
+				boolean same = (ten == eleven) && (eleven == twelve);
+				
+				if (same)
+				{
+					m_allButtons[0][2].setBackground(Color.WHITE);
+					m_allButtons[1][1].setBackground(Color.WHITE);
+					m_allButtons[2][0].setBackground(Color.WHITE);
+					DisableAllButtons();
+					JOptionPane.showMessageDialog(frmTicTacToe, "We have a winner!");
 				}
 			}
 		}
